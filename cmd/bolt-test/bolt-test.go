@@ -9,7 +9,7 @@ import (
 )
 
 type Command struct {
-	field1, field2 string
+	Field1, Field2 string
 }
 
 func main() {
@@ -31,32 +31,32 @@ func main() {
 		}
 		
 		// Adding entry
-		err = b.Put([]byte("key1"), []byte(`{"field1":"1", "field2":"2"}`))
+		err = b.Put([]byte("key1"), []byte(`{"Field1":"1", "Field2":"2"}`))
 		if err != nil {
 			log.Fatal(err)
 		}
 		
 		// Getting entry
 		k1 := "key1"
-		v := b.Get([]byte(k1))
+		v1 := b.Get([]byte(k1))
 		
-		fmt.Printf("Key:%s Value:%s", k1, v)
+		fmt.Printf("Key:%s Value:%s", k1, v1)
 		
 		// Getting entry
 		k2 := "key2"
-		v = b.Get([]byte(k2))
+		v2 := b.Get([]byte(k2))
 		
-		fmt.Printf("Key:%s Value:%s", k2, v)
+		fmt.Printf("\nKey:%s Value:%s", k2, v2)
 					
 		// Using unmarshal
 		var cmd Command
-		err = json.Unmarshal(v, &cmd)
+		err = json.Unmarshal(v1, &cmd)
 		
 		if err != nil {
 			fmt.Println("error unmarshal:", err)
 		}
 		
-		fmt.Printf("%+v", cmd)
+		fmt.Printf("\n%+v", cmd)
 		
 		return nil	
 	})
