@@ -1,0 +1,3 @@
+[logger]
+filename="agent.log"
+level="fatal"
